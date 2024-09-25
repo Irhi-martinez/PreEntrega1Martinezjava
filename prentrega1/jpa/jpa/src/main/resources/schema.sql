@@ -1,0 +1,20 @@
+CREATE TABLE cliente(
+id INT AUTO_INCREMENT PRIMARY KEY,
+nombre VARCHAR(255) NOT NULL,
+email VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE productos(
+id INT AUTO_INCREMENT PRIMARY KEY,
+nombre VARCHAR(255) NOT NULL,
+precio DECIMAL(10, 2) NOT NULL
+);
+
+CREATE TABLE ventas(
+id INT AUTO_INCREMENT PRIMARY KEY,
+id_cliente INT NOT NULL,
+id_producto INT NOT NULL,
+cantidad INT NOT NULL,
+FOREIGN KEY (id_cliente) REFERENCES cliente(id),
+FOREIGN KEY (id_producto) REFERENCES producto(id)
+);
